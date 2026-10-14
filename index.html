@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan Produk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">▦</span><span>Produk<span class="brand-light">Panel</span></span></div>
+      <div class="nav-label">MENU UTAMA</div>
+      <a class="nav-item active" href="index.html"><span>▤</span> Pengaturan Produk</a>
+      <a class="nav-item" href="promo.html"><span>♡</span> Daftar Promo</a>
+      <div class="sidebar-note"><div class="note-icon">✦</div><strong>Kelola produk lebih mudah</strong><p>Atur harga, stok, dan foto produk dalam satu tempat.</p></div>
+      <div class="sidebar-footer"><span class="status-dot"></span> Panel lokal aktif</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="mobile-brand">▦ ProdukPanel</div>
+        <div class="breadcrumb">Dashboard <span>/</span> <strong>Pengaturan Produk</strong></div>
+        <div class="profile"><div class="avatar">A</div><div><strong>Admin Toko</strong><small>Pengelola</small></div></div>
+      </header>
+      <nav class="mobile-nav" aria-label="Navigasi utama">
+        <a class="mobile-nav-item active" href="index.html"><span>▤</span> Pengaturan Produk</a>
+        <a class="mobile-nav-item " href="promo.html"><span>♡</span> Daftar Promo</a>
+      </nav>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">MANAJEMEN TOKO</p><h1>Pengaturan Produk</h1><p class="subheading">Kelola informasi, harga, dan ketersediaan produk tokomu.</p></div>
+        <button class="primary-btn" id="addProductBtn" type="button"><span>＋</span> Tambah Produk</button>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat-card"><div class="stat-top"><span>Total Produk</span><span class="stat-icon purple">▤</span></div><strong id="totalProducts">3</strong><small>Produk terdaftar</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Stok Tersedia</span><span class="stat-icon green">✓</span></div><strong id="totalStock">86</strong><small>Unit barang</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Stok Menipis</span><span class="stat-icon orange">!</span></div><strong id="lowStock">1</strong><small>Perlu diperiksa</small></article>
+      </section>
+
+      <section class="product-panel">
+        <div class="panel-header"><div><h2>Daftar Produk</h2><p>Ubah detail produk lalu tekan simpan.</p></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Cari nama produk..."></div></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>PRODUK</th><th>HARGA (RP)</th><th>STOK</th><th>STATUS</th><th class="action-heading">AKSI</th></tr></thead>
+            <tbody id="productList"></tbody>
+          </table>
+        </div>
+        <div class="panel-footer"><span id="resultCount">Menampilkan 3 produk</span><span class="saved-label"><span class="status-dot"></span> Perubahan tersimpan di perangkat ini</span></div>
+      </section>
+      <p class="page-footnote">Tips: masukkan link gambar langsung yang berakhiran .jpg, .png, atau .webp agar foto dapat ditampilkan.</p>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-heading"><div><p class="eyebrow">KATALOG TOKO</p><h2 id="modalTitle">Tambah Produk</h2></div><button class="close-btn" id="closeModal" aria-label="Tutup">×</button></div>
+      <form id="productForm">
+        <label>Nama produk<input id="newName" required maxlength="80" placeholder="Contoh: Tas selempang"></label>
+        <label>Link gambar produk<input id="newImage" type="url" placeholder="https://contoh.com/gambar.jpg"></label>
+        <div class="form-row"><label>Harga (Rp)<input id="newPrice" type="number" min="0" required placeholder="150000"></label><label>Jumlah stok<input id="newStock" type="number" min="0" required placeholder="20"></label></div>
+        <div class="modal-actions"><button type="button" class="secondary-btn" id="cancelModal">Batal</button><button class="primary-btn" type="submit">Simpan Produk</button></div>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast"><span class="toast-check">✓</span><div><strong>Berhasil disimpan!</strong><small>Data produk sudah diperbarui.</small></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
